@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>Portfolio</title>
+	<link rel="stylesheet" href="./css/normalize.css" />
+	<link rel="stylesheet" href="./css/style.css" />
+	<link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Roboto:400,700&display=swap&subset=cyrillic"
+		rel="stylesheet" />
+</head>
+
+<body>
+	<h2>Морской бой</h2>
+	<div id="board">
+		<div id="messageArea">message: Battale is start</div>
+		<table cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="simbol">A</td>
+				<td class="fireplace" id="00"></td>
+				<td class="fireplace" id="01"></td>
+				<td class="fireplace" id="02"></td>
+				<td class="fireplace" id="03"></td>
+				<td class="fireplace" id="04"></td>
+				<td class="fireplace" id="05"></td>
+				<td class="fireplace" id="06"></td>
+			</tr>
+			<tr>
+				<td class="simbol">B</td>
+				<td class="fireplace" id="10"></td>
+				<td class="fireplace" id="11"></td>
+				<td class="fireplace" id="12"></td>
+				<td class="fireplace" id="13"></td>
+				<td class="fireplace" id="14"></td>
+				<td class="fireplace" id="15"></td>
+				<td class="fireplace" id="16"></td>
+			</tr>
+
+			<tr>
+				<td class="simbol">C</td>
+				<td class="fireplace" id="20"></td>
+				<td class="fireplace" id="21"></td>
+				<td class="fireplace" id="22"></td>
+				<td class="fireplace" id="23"></td>
+				<td class="fireplace" id="24"></td>
+				<td class="fireplace" id="25"></td>
+				<td class="fireplace" id="26"></td>
+			</tr>
+			<tr>
+				<td class="simbol">D</td>
+				<td class="fireplace" id="30"></td>
+				<td class="fireplace" id="31"></td>
+				<td class="fireplace" id="32"></td>
+				<td class="fireplace" id="33"></td>
+				<td class="fireplace" id="34"></td>
+				<td class="fireplace" id="35"></td>
+				<td class="fireplace" id="36"></td>
+			</tr>
+			<tr>
+				<td class="simbol">E</td>
+				<td class="fireplace" id="40"></td>
+				<td class="fireplace" id="41"></td>
+				<td class="fireplace" id="42"></td>
+				<td class="fireplace" id="43"></td>
+				<td class="fireplace" id="44"></td>
+				<td class="fireplace" id="45"></td>
+				<td class="fireplace" id="46"></td>
+			</tr>
+			<tr>
+				<td class="simbol">F</td>
+				<td class="fireplace" id="50"></td>
+				<td class="fireplace" id="51"></td>
+				<td class="fireplace" id="52"></td>
+				<td class="fireplace" id="53"></td>
+				<td class="fireplace" id="54"></td>
+				<td class="fireplace" id="55"></td>
+				<td class="fireplace" id="56"></td>
+			</tr>
+			<tr>
+				<td class="simbol">G</td>
+				<td class="fireplace" id="60"></td>
+				<td class="fireplace" id="61"></td>
+				<td class="fireplace" id="62"></td>
+				<td class="fireplace" id="63"></td>
+				<td class="fireplace" id="64"></td>
+				<td class="fireplace" id="65"></td>
+				<td class="fireplace" id="66"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td class="number">1</td>
+				<td class="number">2</td>
+				<td class="number">3</td>
+				<td class="number">4</td>
+				<td class="number">5</td>
+				<td class="number">6</td>
+				<td class="number">7</td>
+			</tr>
+		</table>
+
+		<form>
+			<input type="text" id="guessInput" placeholder="A0" />
+			<input type="button" id="fireButton" value="Fire!" />
+		</form>
+	</div>
+	<script src="./main.js"></script>
+</body>
+
+</html>
