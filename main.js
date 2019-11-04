@@ -3,6 +3,9 @@ function init() {
 	fireButton.onclick = handleFireButton;
 	let guessInput = document.getElementById('guessInput');
 	guessInput.onkeypress = handleKeyPress;
+
+	model.generateShipLocations();
+	tests.viewDesck();
 }
 window.onload = init;
 
@@ -44,19 +47,18 @@ let model = {
 	shipSunk: 0,
 	ships: [
 		{
-			locations: ['06', '16', '26'],
+			locations: [0, 0, 0],
 			hits: ['', '', '']
 		},
 		{
-			locations: ['24', '34', '44'],
+			locations: [0, 0, 0],
 			hits: ['', '', '']
 		},
 		{
-			locations: ['10', '11', '12'],
+			locations: [0, 0, 0],
 			hits: ['', '', '']
 		}
 	],
-
 	fire: function(guess) {
 		let index = 0;
 		for (let i = 0; i < this.ships.length; i++) {
@@ -89,32 +91,45 @@ let model = {
 	},
 	generateShipLocations: function() {
 		let locations;
+		console.log('generate is started');
 		for (var i = 0; i < this.numShips; i++) {
-			do {} while (this.collision(locations));
+			do {
+				locations = this.generateShip();
+			} while (this.collision(locations));
 			this.ships[i].locations = locations;
+			console.log(this.ships[i].locations);
 		}
 	},
 	generateShip: function() {
 		let diraction = Math.floor(Math.random() * 2);
 		let row, col;
 		let newShipLocations = [];
-		if (diraction === 1) {
+		if (diraction == 1) {
 			row = Math.floor(Math.random() * this.boardSize);
 			col = Math.floor(Math.random() * (this.boardSize - 3));
 		} else {
-			row = Math.floor(Math.random() * this.boardSize - 3);
+			row = Math.floor(Math.random() * (this.boardSize - 3));
 			col = Math.floor(Math.random() * this.boardSize);
 		}
-		for (let i = 0; i < this.shipLength; i++) {
+		for (let i = 0; i < this.shipLenght; i++) {
 			if (diraction === 1) {
-				row = Math.floor(Math.random() * this.boardSize);
-				col = Math.floor(Math.random() * (this.boardSize - 3));
+				newShipLocations.push(row + '' + (col + i));
 			} else {
-				row = Math.floor(Math.random() * this.boardSize - 3);
-				col = Math.floor(Math.random() * this.boardSize);
+				newShipLocations.push(row + i + '' + col);
 			}
 		}
 		return newShipLocations;
+	},
+	collision: function(locations) {
+		for (let i = 0; i < this.numShips; i++) {
+			let ship = model.ships[i];
+			for (let j = 0; j < locations.length; j++) {
+				if (ship.locations.indexOf(locations[j]) >= 0) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 };
 
@@ -157,8 +172,6 @@ let controller = {
 	}
 };
 
-let generate = {};
-
 let tests = {
 	viewDesck: function() {
 		for (let i = 0; i < model.boardSize; i++)
@@ -167,5 +180,3 @@ let tests = {
 			}
 	}
 };
-
-tests.viewDesck();
